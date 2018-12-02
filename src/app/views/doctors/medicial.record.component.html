@@ -1,0 +1,42 @@
+<div class="animated fadeIn">
+    <div *ngIf="isShow === 'hide'" class="card">
+        <div class="card-header">
+            <i class="icon-drop"></i> Medical Record
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+                    <button (click)="issue()" type="button" class="btn btn-block btn-primary">Issue Medicial Record</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-lg-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Doctor</th>
+                                <th>Date</th>
+                                <th>Conclusion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngIf="medicialRecords != null">
+                                <tr *ngFor="let md of medicialRecords">
+                                    <td>{{md.patientAddress}}</td>
+                                    <td>{{md.patientDoctor}}</td>
+                                    <td>{{md.conclusion}}</td>
+                                    <td>{{md.dateOfIssue}}</td>
+                                </tr>
+                            </ng-container>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #cmp form-host></ng-template>
+</div>

@@ -1,0 +1,37 @@
+<div class="animated fadeIn">
+    <div *ngIf="isShow === 'hide'" class="card">
+        <div class="card-header">
+            <i class="icon-drop"></i> Doctor list
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+                    <button (click)="register()" type="button" class="btn btn-block btn-primary">Issue Doctor</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div *ngFor="let doctor of doctors" class="col-sm-3">
+                    <div class="card card-accent-info">
+                        <div class="card-body">
+                            <div style="text-align: center">
+                                <div class="avatar float-right">
+                                    <img class="img-avatar" src="assets/img/avatars/avatar.png" alt="">
+                                </div>
+                                <h4>{{doctor.name}}</h4>
+                            </div>
+                            <div style="text-align: center">
+                                <h5>Department:{{doctor.medicialDepartment}}</h5>
+                            </div>
+                            <div style="text-align: center">
+                                <h5>Experience:{{doctor.experientYear}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #cmp form-host></ng-template>
+</div>

@@ -1,0 +1,32 @@
+<div class="animated fadeIn">
+        <div class="card" *ngIf="isShow === 'show'">
+            <div class="card-header">
+                <i class="icon-drop"></i> Patient
+            </div>
+    
+            <form (ngSubmit)="onSubmit()" #doctorForm="ngForm">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="form-col-form-label">Name</label>
+                        <input type="text" class="form-control is-valid" name="name" [(ngModel)]="patient.name">
+                    </div>
+    
+                    <div class="form-group row">
+                        <label class="form-col-form-label">Blood Group</label>
+                        <input type="text" class="form-control is-valid" name="bloodGroup"  [(ngModel)]="patient.bloodGroup">
+                    </div>
+    
+                    <div class="form-group row">
+                        <label class="form-col-form-label">Age</label>
+                        <input type="text" class="form-control is-valid" name="age"  [(ngModel)]="patient.age">
+                    </div>
+
+                    
+                </div>
+                <div class="card-footer">
+                    <button [disabled]="isDisable" type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                    <button (click)="close()" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>

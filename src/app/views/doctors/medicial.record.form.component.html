@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+    <div class="card" *ngIf="isShow === 'show'">
+        <div class="card-header">
+            <i class="icon-drop"></i> MEDICIAL RECORD
+        </div>
+
+        <form (ngSubmit)="issue()" #doctorForm="ngForm">
+            <div class="card-body">
+                <div class="form-group row">
+                    <label class="form-col-form-label">Patient</label>
+                    <input type="text" class="form-control is-valid" name="patientAddress" [(ngModel)]="medicialRecord.patientAddress">
+                </div>
+
+                <div class="form-group row">
+                    <label class="form-col-form-label">Doctor</label>
+                    <input type="text" class="form-control is-valid" name="patientDoctor" [(ngModel)]="medicialRecord.patientDoctor">
+                </div>
+
+                <div class="form-group row">
+                    <label class="form-col-form-label">Conclusion</label>
+                    <input type="text" class="form-control is-valid" name="conclusion" [(ngModel)]="medicialRecord.conclusion">
+                </div>
+
+                <div class="form-group row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><button class="btn btn-sm btn-block btn-ghost-info" (click)="addRow()" type="button">Add</button></th>
+                                <th>Drug</th>
+                                <th>Qty</th>
+                                <th>No Of Day</th>
+                                <th>Time to use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let recipience of medicialRecord.recipienceItems; let i = index">
+                                <td><button class="btn btn-sm btn-block btn-outline-danger" (click)="delete(i)" type="button">Delete</button></td>
+                                <td> <input type="text" class="form-control is-valid" name="drugName-{{i}}" [(ngModel)]="recipience.drugName"></td>
+                                <td>
+                                    <input type="text" class="form-control is-valid" name="quantity-{{i}}" [(ngModel)]="recipience.quantity">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control is-valid" name="drugUsingTime-{{i}}"
+                                        [(ngModel)]="recipience.drugUsingTime">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control is-valid" name="useInDay-{{i}}" [(ngModel)]="recipience.useInDay">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="isDisable" type="submit" class="btn btn-sm btn-success"><i class="fa fa-dot-circle-o"></i>
+                    Submit</button>
+                <button (click)="close()" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
